@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Doble Alfa Barberos – Chamberí, Madrid</title>
+
+  <!-- Google Ads Conversion Tag – REEMPLAZA LOS VALORES -->
+  <!-- 
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-XXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-XXXXXXXXX');
+  </script>
+  -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:     #080808;
+      --off-black: #111111;
+      --panel:     #161616;
+      --border:    #252525;
+      --gold:      #b8903a;
+      --gold-lt:   #d4aa5a;
+      --white:     #f5f3ef;
+      --muted:     #888888;
+      --cta-bg:    #b8903a;
+      --cta-hover: #d4aa5a;
+      --radius:    4px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── UTILITY ── */
+    .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+    .gold { color: var(--gold-lt); }
+    .script { font-family: 'Dancing Script', cursive; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(8,8,8,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 24px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.4rem;
+      color: var(--white);
+      letter-spacing: 0.02em;
+    }
+    .nav-logo span { color: var(--gold-lt); }
+    .nav-cta {
+      background: var(--cta-bg);
+      color: var(--black);
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 9px 20px;
+      border-radius: var(--radius);
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--cta-hover); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center;
+      padding: 120px 24px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 40%, rgba(184,144,58,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    /* geometric wolf wireframe background */
+    .hero-bg-mark {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -55%);
+      width: min(520px, 90vw);
+      opacity: 0.04;
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 28px;
+    }
+
+    .hero-logo-img {
+      width: min(280px, 70vw);
+      margin-bottom: 36px;
+      filter: drop-shadow(0 0 40px rgba(184,144,58,0.18));
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 6vw, 4.2rem);
+      font-weight: 900;
+      line-height: 1.08;
+      letter-spacing: -0.01em;
+      margin-bottom: 20px;
+      max-width: 720px;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--gold-lt);
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 2.2vw, 1.15rem);
+      color: var(--muted);
+      max-width: 480px;
+      margin-bottom: 44px;
+      font-weight: 300;
+    }
+
+    .hero-ctas {
+      display: flex; gap: 14px; flex-wrap: wrap; justify-content: center;
+      margin-bottom: 52px;
+    }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--cta-bg);
+      color: var(--black);
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 16px 36px;
+      border-radius: var(--radius);
+      transition: background 0.2s, transform 0.15s;
+      box-shadow: 0 4px 24px rgba(184,144,58,0.25);
+    }
+    .btn-primary:hover { background: var(--cta-hover); transform: translateY(-1px); }
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: transparent;
+      color: var(--white);
+      font-weight: 500;
+      font-size: 0.95rem;
+      text-decoration: none;
+      padding: 16px 28px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      transition: border-color 0.2s;
+    }
+    .btn-secondary:hover { border-color: var(--gold); color: var(--gold-lt); }
+
+    .hero-trust {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 0.85rem; color: var(--muted);
+    }
+    .stars { color: var(--gold); font-size: 1rem; letter-spacing: 1px; }
+
+    /* ── STRIP ── */
+    .strip {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--panel);
+      padding: 20px 24px;
+      overflow: hidden;
+    }
+    .strip-inner {
+      display: flex; justify-content: center; gap: 0; flex-wrap: wrap;
+    }
+    .strip-item {
+      padding: 8px 28px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border-right: 1px solid var(--border);
+    }
+    .strip-item:last-child { border-right: none; }
+    .strip-item strong { color: var(--gold-lt); font-weight: 600; }
+
+    /* ── SECTION TITLES ── */
+    .section { padding: 96px 0; }
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 700;
+      line-height: 1.12;
+      margin-bottom: 48px;
+    }
+
+    /* ── SERVICES ── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2px;
+      border: 1px solid var(--border);
+    }
+    .service-card {
+      background: var(--panel);
+      padding: 28px 28px 24px;
+      position: relative;
+      transition: background 0.2s;
+    }
+    .service-card:hover { background: #1c1c1c; }
+    .service-card.featured {
+      background: linear-gradient(135deg, #1a1408 0%, var(--panel) 100%);
+      border: 1px solid rgba(184,144,58,0.35);
+    }
+    .service-badge {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--black);
+      background: var(--gold);
+      padding: 3px 10px;
+      border-radius: 2px;
+      margin-bottom: 14px;
+    }
+    .service-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+    .service-desc {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-bottom: 18px;
+      line-height: 1.5;
+    }
+    .service-footer {
+      display: flex; align-items: center; justify-content: space-between;
+      border-top: 1px solid var(--border);
+      padding-top: 16px;
+      margin-top: auto;
+    }
+    .service-price {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--gold-lt);
+    }
+    .service-duration {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+    .service-book {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-decoration: none;
+      border: 1px solid rgba(184,144,58,0.4);
+      padding: 7px 16px;
+      border-radius: var(--radius);
+      transition: background 0.2s, color 0.2s;
+    }
+    .service-book:hover { background: var(--gold); color: var(--black); }
+
+    /* ── WHY ── */
+    .why { background: var(--off-black); }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 40px;
+    }
+    .why-item {}
+    .why-icon {
+      font-size: 1.8rem;
+      margin-bottom: 14px;
+      display: block;
+    }
+    .why-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .why-text { font-size: 0.87rem; color: var(--muted); line-height: 1.6; }
+
+    /* ── REVIEWS ── */
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .review-card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      padding: 24px;
+      border-radius: var(--radius);
+    }
+    .review-stars { color: var(--gold); font-size: 0.85rem; margin-bottom: 12px; }
+    .review-text {
+      font-size: 0.88rem;
+      color: #c8c4bc;
+      line-height: 1.65;
+      margin-bottom: 16px;
+      font-style: italic;
+    }
+    .review-author {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .review-service {
+      font-size: 0.74rem;
+      color: var(--gold);
+      margin-top: 2px;
+    }
+
+    /* ── INFO ── */
+    .info { background: var(--off-black); }
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+    }
+    @media (max-width: 640px) { .info-grid { grid-template-columns: 1fr; } }
+    .info-block-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+    .hours-list { list-style: none; }
+    .hours-list li {
+      display: flex; justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.88rem;
+    }
+    .hours-list li:last-child { border-bottom: none; }
+    .hours-list .day { color: var(--muted); }
+    .hours-list .time { color: var(--white); font-weight: 500; }
+    .hours-list .closed { color: var(--muted); }
+
+    .contact-item {
+      display: flex; align-items: flex-start; gap: 14px;
+      margin-bottom: 20px;
+    }
+    .contact-icon { font-size: 1.1rem; margin-top: 2px; }
+    .contact-text { font-size: 0.9rem; line-height: 1.5; }
+    .contact-text a { color: var(--gold-lt); text-decoration: none; }
+    .contact-text a:hover { text-decoration: underline; }
+    .contact-label { font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; }
+
+    .map-embed {
+      width: 100%; height: 220px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      margin-top: 24px;
+      filter: grayscale(0.6) contrast(1.1);
+    }
+
+    /* ── CTA FINAL ── */
+    .cta-section {
+      padding: 100px 24px;
+      text-align: center;
+      background: var(--black);
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 50% 60% at 50% 50%, rgba(184,144,58,0.07) 0%, transparent 70%);
+    }
+    .cta-section .section-label { text-align: center; }
+    .cta-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 900;
+      margin-bottom: 16px;
+      position: relative;
+    }
+    .cta-section p { color: var(--muted); margin-bottom: 40px; max-width: 440px; margin-left: auto; margin-right: auto; position: relative; }
+    .cta-section .hero-ctas { margin-bottom: 0; position: relative; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--off-black);
+      border-top: 1px solid var(--border);
+      padding: 32px 24px;
+      text-align: center;
+    }
+    footer .foot-logo { font-family: 'Dancing Script', cursive; font-size: 1.3rem; color: var(--white); margin-bottom: 8px; }
+    footer p { font-size: 0.78rem; color: var(--muted); }
+
+    /* ── MOBILE ── */
+    @media (max-width: 600px) {
+      .strip-inner { gap: 0; }
+      .strip-item { padding: 7px 14px; font-size: 0.72rem; }
+      .hero-ctas { flex-direction: column; align-items: center; }
+      .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
+      .info-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── DIVIDER ── */
+    .gold-line {
+      width: 48px; height: 2px;
+      background: var(--gold);
+      margin-bottom: 32px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Doble <span>Alfa</span></div>
+  <a href="https://booksy.com/es-es/3804_doble-alfa-barberos-garcia-de-paredes_barberia_53009_madrid"
+     class="nav-cta"
+     id="nav-reservar"
+     onclick="trackReserva('nav')"
+     target="_blank" rel="noopener">
+    Reservar cita
+  </a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <img src="doble_alfa_barberos_logo.jpg"
+       alt="Doble Alfa Barberos logo"
+       class="hero-logo-img"
+       onerror="this.style.display='none'" />
+
+  <p class="hero-eyebrow">Chamberí · Madrid · Desde 2018</p>
+
+  <h1>Tu mejor versión<br/>empieza <em>aquí.</em></h1>
+
+  <p class="hero-sub">
+    Barbería premium en el corazón de Chamberí. Corte, barba y estilo — hechos con precisión y sin prisas.
+  </p>
+
+  <div class="hero-ctas">
+    <a href="https://booksy.com/es-es/3804_doble-alfa-barberos-garcia-de-paredes_barberia_53009_madrid"
+       class="btn-primary"
+       id="hero-reservar"
+       onclick="trackReserva('hero')"
+       target="_blank" rel="noopener">
+      ✂ Reservar ahora
+    </a>
+    <a href="tel:+34619545464" class="btn-secondary" onclick="trackLlamada()">
+      📞 Llamar
+    </a>
+  </div>
+
+  <div class="hero-trust">
+    <span class="stars">★★★★★</span>
+    <span><strong style="color:var(--white)">4.9</strong> · +738 reseñas en Google</span>
+  </div>
+</section>
+
+<!-- STRIP -->
+<div class="strip">
+  <div class="container">
+    <div class="strip-inner">
+      <div class="strip-item">Lun – Vie <strong>10:00 – 21:00</strong></div>
+      <div class="strip-item">Sábado <strong>10:00 – 15:00</strong></div>
+      <div class="strip-item">Domingo <strong>Cerrado</strong></div>
+      <div class="strip-item">Chamberí <strong>García de Paredes, 36</strong></div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="section" id="servicios">
+  <div class="container">
+    <p class="section-label">Servicios & Precios</p>
+    <h2 class="section-title">Lo que hacemos,<br/>lo hacemos bien.</h2>
+
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-name">Corte de pelo</div>
+        <div class="service-desc">Corte clásico o moderno, adaptado a tu estilo y tipo de cabello.</div>
+        <div class="service-footer">
+          <div>
+            <div class="service-price">19 €</div>
+            <div class="service-duration">30 min</div>
+          </div>
+          <a href="https://booksy.com/es-es/3804_doble-alfa-barberos-garcia-de-paredes_barberia_53009_madrid"
+             class="service-book"
+             onclick="trackReserva('services-corte')"
+             target="_blank" rel="noopener">Reservar</a>
+        </div>
+      </div>
+
+      <div class="service-card featured">
+        <div class="service-badge">⭐ Más popular</div>
+        <div class="service-name">Corte + Arreglo de barba</div>
+        <div class="service-desc">El pack estrella. Corte completo más perfilado y arreglo de barba en una sola visita.</div>
+        <div class="service-footer">
+          <div>
+            <div class="service-price">29 €</div>
+            <div class="service-duration">40 min</div>
+          </div>
+          <a href="https://booksy.com/es-es/3804_doble-alfa-barberos-garcia-de-paredes_barberia_53009_madrid"
+             class="service-book"
+             onclick="trackReserva('services-pack')"
+             target="_blank" rel="noopener">Reservar</a>
+        </div>
+      </div>
+
+      <div class="service-card featured">
+        <div class="service-badge">Premium</div>
+        <div class="service-name">Corte + Barba Doble Alfa Premium</div>
+        <div class="service-desc">Afeitado tradicional con brocha, vapor de ozono, peeling facial e hidratación completa. Un servicio para un verdadero Alfa.</div>
+        <div class="service-footer">
+          <div>
+            <div class="service-price">37 €</div>
+            <div class="service-duration">60 min</div>
+          </div>
+          <a href="https://booksy.com/es-es/3804_doble-alfa-barberos-garcia-de-paredes_barberia_53009_madrid"
+             class="service-book"
+             onclick="trackReserva('services-premium')"
+             target="_blank" rel="noopener">Reservar</a>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-name">Afeitado Doble Alfa</div>
+        <div class="service-desc">Afeitado tradicional con brocha, vaporizador de ozono, peeling facial e hidratación completa de piel y barba.</div>
+        <div class="service-footer">
+          <div>
+            <div class="service-price">24 €</div>
+            <div class="service-duration">30 min</div>
+          </div>
+          <a href="https://booksy.com/es-es/3804_doble-alfa-barberos-garcia-de-paredes_barberia_53009_madrid"
+             class="service-book"
+             onclick="trackReserva('services-afeitado')"
+             target="_blank" rel="noopener">Reservar</a>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-name">Niños (hasta 12 años)</div>
+        <div class="service-desc">Atención especializada para los más pequeños, con la misma calidad y cuidado de siempre.</div>
+        <div class="service-footer">
+          <div>
+            <div class="service-price">16 €</div>
+            <div class="service-duration">30 min</div>
+          </div>
+          <a href="https://booksy.com/es-es/3804_doble-alfa-barberos-garcia-de-paredes_barberia_53009_madrid"
+             class="service-book"
+             onclick="trackReserva('services-ninos')"
+             target="_blank" rel="noopener">Reservar</a>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-name">Arreglo de barba + perfilado</div>
+        <div class="service-desc">Perfilado de contornos a navaja para un acabado limpio y preciso.</div>
+        <div class="service-footer">
+          <div>
+            <div class="service-price">18 €</div>
+            <div class="service-duration">20 min</div>
+          </div>
+          <a href="https://booksy.com/es-es/3804_doble-alfa-barberos-garcia-de-paredes_barberia_53009_madrid"
+             class="service-book"
+             onclick="trackReserva('services-barba')"
+             target="_blank" rel="noopener">Reservar</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="section why" id="nosotros">
+  <div class="container">
+    <p class="section-label">Por qué elegirnos</p>
+    <h2 class="section-title">Una barbería que<br/>cuida cada detalle.</h2>
+
+    <div class="why-grid">
+      <div class="why-item">
+        <span class="why-icon">✂️</span>
+        <div class="why-title">Maestros de oficio</div>
+        <p class="why-text">Juanma, Maxi, Pablo, Carlos, Adrián y el resto del equipo llevan años perfeccionando cada técnica. El resultado lo nota cualquiera que se siente en la silla.</p>
+      </div>
+      <div class="why-item">
+        <span class="why-icon">🪒</span>
+        <div class="why-title">Servicio premium real</div>
+        <p class="why-text">Desde el afeitado tradicional con brocha y vapor de ozono hasta el peeling facial. No es un extra — es el estándar.</p>
+      </div>
+      <div class="why-item">
+        <span class="why-icon">☕</span>
+        <div class="why-title">Ambiente de bienvenida</div>
+        <p class="why-text">Café de cortesía, buen ambiente y conversación. Ven a arreglarte y sal sintiéndote otra persona.</p>
+      </div>
+      <div class="why-item">
+        <span class="why-icon">📍</span>
+        <div class="why-title">En el corazón de Chamberí</div>
+        <p class="why-text">García de Paredes, 36. Fácil acceso en metro, a dos pasos de Alonso Martínez e Iglesia.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="section" id="resenas">
+  <div class="container">
+    <p class="section-label">Lo que dicen nuestros clientes</p>
+    <h2 class="section-title">4.9 ★ en Google<br/><span style="font-size:0.6em;color:var(--muted)">+738 reseñas verificadas</span></h2>
+
+    <div class="reviews-grid">
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Juanma es un tío encantador y un peluquero top. Buen trabajo y se nota que ama su oficio."</p>
+        <div class="review-author">Miguel</div>
+        <div class="review-service">Corte de pelo</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Me asesoró durante todo el proceso, asegurándose de que estuviera completamente satisfecho con mi corte. El resultado fue fantástico."</p>
+        <div class="review-author">Cliente verificado</div>
+        <div class="review-service">Corte + Arreglo de barba</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Me ha encantado la experiencia, el trato ha sido de 10 y sobre todo el resultado de cómo me ha dejado. Sin duda repetiré."</p>
+        <div class="review-author">Manu</div>
+        <div class="review-service">Corte + Arreglo de barba</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"El corte que antes me duraba un par de días ahora me aguanta la forma durante semanas. Además te ofrecen bebida de cortesía y hay muy buen ambiente."</p>
+        <div class="review-author">Cliente verificado</div>
+        <div class="review-service">Corte de pelo</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Carlos espectacular y estoy seguro que el resto del equipo igual de profesionales. Ya tienen un cliente nuevo."</p>
+        <div class="review-author">Cliente verificado</div>
+        <div class="review-service">Primera visita</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Fantástica atención al cliente, calidad-precio excelente. Adrián fue majísimo además de cortarme el pelo como ninguno antes."</p>
+        <div class="review-author">Cliente verificado</div>
+        <div class="review-service">Corte de pelo</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- INFO -->
+<section class="section info" id="contacto">
+  <div class="container">
+    <p class="section-label">Encuéntranos</p>
+    <h2 class="section-title">Horario & Contacto</h2>
+
+    <div class="info-grid">
+      <div>
+        <p class="info-block-label">Horario de apertura</p>
+        <ul class="hours-list">
+          <li><span class="day">Lunes</span><span class="time">10:00 – 21:00</span></li>
+          <li><span class="day">Martes</span><span class="time">10:00 – 21:00</span></li>
+          <li><span class="day">Miércoles</span><span class="time">10:00 – 21:00</span></li>
+          <li><span class="day">Jueves</span><span class="time">10:00 – 21:00</span></li>
+          <li><span class="day">Viernes</span><span class="time">10:00 – 21:00</span></li>
+          <li><span class="day">Sábado</span><span class="time">10:00 – 15:00</span></li>
+          <li><span class="day">Domingo</span><span class="closed">Cerrado</span></li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="info-block-label">Contacto y ubicación</p>
+
+        <div class="contact-item">
+          <span class="contact-icon">📍</span>
+          <div class="contact-text">
+            <div class="contact-label">Dirección</div>
+            Calle de García de Paredes, 36<br/>Chamberí, 28010 Madrid
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <span class="contact-icon">📞</span>
+          <div class="contact-text">
+            <div class="contact-label">Teléfono</div>
+            <a href="tel:+34619545464" onclick="trackLlamada()">619 54 54 64</a>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <span class="contact-icon">📱</span>
+          <div class="contact-text">
+            <div class="contact-label">Instagram</div>
+            <a href="https://www.instagram.com/doblealfabarberos/" target="_blank" rel="noopener">@doblealfabarberos</a>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <span class="contact-icon">🚇</span>
+          <div class="contact-text">
+            <div class="contact-label">Metro</div>
+            Alonso Martínez (L4, L5, L10) · Iglesia (L1)
+          </div>
+        </div>
+
+        <iframe
+          class="map-embed"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3036.7!2d-3.6980!3d40.4290!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4228f6a1234567%3A0xabcdef!2sCalle%20de%20Garc%C3%ADa%20de%20Paredes%2C%2036%2C%20Chamber%C3%AD%2C%2028010%20Madrid!5e0!3m2!1ses!2ses!4v1234567890"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Ubicación Doble Alfa Barberos">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-section">
+  <div class="container">
+    <p class="section-label">¿Listo para el cambio?</p>
+    <h2>Reserva tu cita hoy.<br/><em class="gold">Sin esperas.</em></h2>
+    <p>Disponibilidad 24/7 en Booksy. Elige tu barbero y tu horario en menos de un minuto.</p>
+    <div class="hero-ctas">
+      <a href="https://booksy.com/es-es/3804_doble-alfa-barberos-garcia-de-paredes_barberia_53009_madrid"
+         class="btn-primary"
+         id="final-reservar"
+         onclick="trackReserva('cta-final')"
+         target="_blank" rel="noopener">
+        ✂ Reservar en Booksy
+      </a>
+      <a href="tel:+34619545464" class="btn-secondary" onclick="trackLlamada()">
+        📞 619 54 54 64
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-logo">Doble Alfa Barberos</div>
+  <p>Calle de García de Paredes, 36 · Chamberí · Madrid · <a href="https://www.instagram.com/doblealfabarberos/" style="color:var(--gold)" target="_blank">@doblealfabarberos</a></p>
+</footer>
+
+<!-- TRACKING SCRIPT -->
+<script>
+  // ─────────────────────────────────────────────────
+  // TRACKING DE CONVERSIONES
+  // Cuando tengas el Google Ads Conversion ID y Label,
+  // sustituye los valores de abajo.
+  // ─────────────────────────────────────────────────
+
+  const CONVERSION_ID    = 'AW-XXXXXXXXX';  // ← tu Conversion ID
+  const CONVERSION_LABEL = 'XXXXXXXXXXX';   // ← tu Conversion Label
+
+  function gtag_report_conversion(url, label) {
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'conversion', {
+        'send_to': CONVERSION_ID + '/' + (label || CONVERSION_LABEL),
+        'event_callback': function() {
+          if (url) { window.location = url; }
+        }
+      });
+    }
+    // Fallback: si no hay gtag todavía, al menos loguea en consola
+    console.log('[Doble Alfa] Conversión disparada:', label || 'reserva');
+    return false;
+  }
+
+  function trackReserva(source) {
+    console.log('[Doble Alfa] Click reservar – origen:', source);
+    // Cuando añadas el Google Ads tag, descomenta:
+    // gtag_report_conversion(null, CONVERSION_LABEL);
+  }
+
+  function trackLlamada() {
+    console.log('[Doble Alfa] Click llamada');
+    // Cuando añadas el Google Ads tag, descomenta:
+    // gtag_report_conversion(null, CONVERSION_LABEL);
+  }
+</script>
+
+</body>
+</html>
