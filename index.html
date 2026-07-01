@@ -1,27 +1,19 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18091030179"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-18091030179');
-</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Doble Alfa Barberos – Chamberí, Madrid</title>
 
   <link rel="icon" type="image/x-icon" href="./favicon.ico" />
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-XXXXXXXXX"></script>
+  <!-- Google Ads Tag -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18091030179"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
-    gtag('config', 'AW-XXXXXXXXX');
+    gtag('config', 'AW-18091030179');
   </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -32,12 +24,12 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --black: #080808;
-      --border: #222;
-      --gold: #b8903a;
+      --black:   #080808;
+      --border:  #222;
+      --gold:    #b8903a;
       --gold-lt: #d4aa5a;
-      --white: #f4f0ea;
-      --muted: #777;
+      --white:   #f4f0ea;
+      --muted:   #777;
     }
 
     html { scroll-behavior: smooth; }
@@ -141,16 +133,8 @@
       flex-wrap: wrap;
     }
 
-    .stars {
-      color: var(--gold);
-      letter-spacing: 1px;
-      font-size: 0.78rem;
-    }
-
-    .trust strong {
-      color: var(--white);
-      font-weight: 500;
-    }
+    .stars { color: var(--gold); letter-spacing: 1px; font-size: 0.78rem; }
+    .trust strong { color: var(--white); font-weight: 500; }
 
     .divider {
       width: 40px;
@@ -176,10 +160,7 @@
       letter-spacing: 0.03em;
     }
 
-    .info-item strong {
-      color: var(--white);
-      font-weight: 500;
-    }
+    .info-item strong { color: var(--white); font-weight: 500; }
 
     .dot {
       width: 3px;
@@ -194,10 +175,7 @@
       text-decoration: none;
       transition: color 0.15s;
     }
-
-    .phone-link:hover {
-      color: var(--gold-lt);
-    }
+    .phone-link:hover { color: var(--gold-lt); }
 
     .ig-btn {
       display: inline-flex;
@@ -213,56 +191,34 @@
       border-radius: 40px;
       transition: color 0.2s, border-color 0.2s;
     }
-
-    .ig-btn:hover {
-      color: var(--white);
-      border-color: #555;
-    }
-
-    .ig-btn svg {
-      width: 14px;
-      height: 14px;
-      fill: currentColor;
-      flex-shrink: 0;
-    }
+    .ig-btn:hover { color: var(--white); border-color: #555; }
+    .ig-btn svg { width: 14px; height: 14px; fill: currentColor; flex-shrink: 0; }
 
     @media (max-width: 420px) {
       .cta-btn { width: 100%; }
       .info-row { gap: 16px; }
     }
-
-    @media (prefers-reduced-motion: reduce) {
-      * { transition: none !important; }
-    }
+    @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
   </style>
 </head>
 <body>
 
-  <img
-    src="./logo.jpg"
-    alt="Doble Alfa Barberos"
-    class="logo-img"
-  />
+  <img src="./logo.jpg" alt="Doble Alfa Barberos" class="logo-img" />
 
-  <h1 class="headline">
-    Tu mejor corte<br />
-    <em>en Chamberí.</em>
-  </h1>
+  <h1 class="headline">Tu mejor corte<br /><em>en Chamberí.</em></h1>
 
-  <p class="subline">
-    Barbería premium en Madrid. Reserva tu cita online en segundos.
-  </p>
+  <p class="subline">Barbería premium en Madrid. Reserva tu cita online en segundos.</p>
 
   <a
     href="https://booksy.com/es-es/3804_doble-alfa-barberos-garcia-de-paredes_barberia_53009_madrid"
     class="cta-btn"
     id="cta-reservar"
-    onclick="trackReserva()"
+    onclick="return gtag_report_conversion('https://booksy.com/es-es/3804_doble-alfa-barberos-garcia-de-paredes_barberia_53009_madrid')"
     target="_blank"
     rel="noopener noreferrer"
   >
     <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M19 3h-1V1h-2v2H8V1H6v2H5C3.9 3 3 3.9 3 5v16c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 18H5V8h14v13zM7 10h5v5H7z"></path>
+      <path d="M19 3h-1V1h-2v2H8V1H6v2H5C3.9 3 3 3.9 3 5v16c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 18H5V8h14v13zM7 10h5v5H7z"/>
     </svg>
     Reservar ahora
   </a>
@@ -279,41 +235,37 @@
       <span class="dot"></span>
       <span>García de Paredes, 36 · Chamberí</span>
     </div>
-
     <div class="info-item">
       <span class="dot"></span>
       <span>Lun–Vie <strong>10–21h</strong> · Sáb <strong>10–15h</strong></span>
     </div>
-
     <div class="info-item">
       <span class="dot"></span>
       <a href="tel:+34619545464" class="phone-link" onclick="trackLlamada()">619 54 54 64</a>
     </div>
   </div>
 
-  <a
-    href="https://www.instagram.com/doblealfabarberos"
-    class="ig-btn"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
+  <a href="https://www.instagram.com/doblealfabarberos" class="ig-btn" target="_blank" rel="noopener noreferrer">
     <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"></path>
+      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
     </svg>
     @doblealfabarberos
   </a>
 
+  <!-- Google Ads Event Snippet – Click Reservar Ahora -->
   <script>
-    const ADS_ID = 'AW-XXXXXXXXX';
-    const ADS_LABEL = 'XXXXXXXXXXX';
-
-    function trackReserva() {
-      console.log('DobleAlfa - Click Reservar');
-      if (typeof gtag !== 'undefined') {
-        gtag('event', 'conversion', {
-          send_to: ADS_ID + '/' + ADS_LABEL
-        });
-      }
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof(url) != 'undefined') {
+          window.open(url, '_blank');
+        }
+      };
+      gtag('event', 'conversion', {
+        'send_to': 'AW-18091030179/7_XnCMne_sgcEKPtvLJD',
+        'transaction_id': '',
+        'event_callback': callback
+      });
+      return false;
     }
 
     function trackLlamada() {
